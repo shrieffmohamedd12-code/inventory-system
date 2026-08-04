@@ -1,3 +1,5 @@
+console.log("URL:", url);
+console.log("READY:", Boolean(url && anonKey));
 import { createClient } from "@supabase/supabase-js";
 
 const url = import.meta.env.VITE_SUPABASE_URL;
