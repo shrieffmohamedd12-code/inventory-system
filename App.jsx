@@ -1,7 +1,5 @@
 import db from "./db";
 import { supabase, SUPABASE_READY } from "./supabaseClient";
-import ... from "./db";
-import { supabase, SUPABASE_READY } from "./lib/supabaseClient";
 import {
   Plus, ArrowDownToLine, ArrowUpFromLine, Search, Package, History, X,
   AlertTriangle, Users, Upload, LogOut, Shield, UserCircle, FileSpreadsheet,
