@@ -403,27 +403,3 @@ export async function receiveOrder(order, internalPo, sizeBreakdown, totalQty, n
     if (txErr) throw txErr;
   }
 }
-const db = {
-  fetchAll,
-  fetchProfiles,
-  signInByName,
-  signOut,
-  getCurrentProfile,
-  signUpFirstAdmin,
-  createUser,
-  deleteUser,
-  addFactory,
-  removeFactory,
-  addItem,
-  addColorToItem,
-  setItemMinQty,
-  applyMovement,
-  importItemsFromExcel,
-  replaceWarehouseFromExcel,
-  addOrder,
-  importOrders,
-  setOrderStatus,
-  receiveOrder,
-};
-
-export default db;
