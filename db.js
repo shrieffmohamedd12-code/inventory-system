@@ -106,7 +106,7 @@ export async function getCurrentProfile() {
 
 // used only once, for the very first admin account (bootstraps the system)
 export async function signUpFirstAdmin(name, pin) {
-  const email = `u-${uid()}@warehouse.local`;
+  const email = `u-${uid()}@example.com`;
   const { data, error } = await supabase.auth.signUp({ email, password: pin });
   if (error) throw error;
   const userId = data.user.id;
