@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import * as XLSX from "xlsx";
-import * as db from "./lib/db";
+import ... from "./db";
 import { supabase, SUPABASE_READY } from "./lib/supabaseClient";
 import {
   Plus, ArrowDownToLine, ArrowUpFromLine, Search, Package, History, X,
