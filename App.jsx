@@ -618,37 +618,27 @@ function GlobalStyle() {
 /* ---------- Login (wired to Supabase Auth) ---------- */
 
 function LoginScreen({ fetchUsers, onLogin, onCreateFirstAdmin }) {
-  const [users, setUsers] = useState(null); // null = still loading
+  const [users, setUsers] = useState(null);
   const [loadError, setLoadError] = useState("");
-
-  useEffect(() => {
-    (async () => {
-      try { setUsers(await fetchUsers()); }
-      catch (e) { setLoadError("تعذر الاتصال بقاعدة البيانات، تأكد من إعدادات Supabase"); }
-    })();
-  }, []);
-
-  if (loadError) {
-    return (
-      <div style={styles.loginWrap}>
-        <div style={styles.loginCard}>
-          <div style={styles.loginMark}>⚠️</div>
-          <div style={styles.loginTitle}>خطأ في الاتصال</div>
-          <div style={styles.loginSub}>{loadError}</div>
-        </div>
-      </div>
-    );
-  }
-  if (users === null) {
-    return <div style={styles.loading}>جاري التحميل...</div>;
-  }
-  if (users.length === 0) return <FirstAdminSetup onCreate={onCreateFirstAdmin} />;
-
   const [picked, setPicked] = useState(null);
   const [pin, setPin] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
+  useEffect(() => {
+    
+    (async () => {
+      try { 
+        setUsers(await fetchUsers()); 
+      }
+      catch (e) { 
+        setLoadError("تعذر الاتصال بقاعدة البيانات، تأكد من إعدادات Supabase"); 
+      }
+    })();
+  }, []);  if (users === null) {
+    return <div style={styles.loading}>جاري التحميل...</div>;
+  }
+  if (users.length === 0) return <FirstAdminSetup onCreate={onCreateFirstAdmin} />;
   const submit = async () => {
     if (!picked || busy) return;
     setBusy(true);
